@@ -1,3 +1,4 @@
+//trabalhando com string
 const nome = 'Edson Martin Feitosa'
 console.log(nome.replace('Martin', 'Silva'))
 console.log(nome.split(' '))

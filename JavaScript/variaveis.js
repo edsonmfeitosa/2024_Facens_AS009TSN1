@@ -11,7 +11,7 @@ n1 = 'teste'
 n2 = 1.2
 console.log(n1, n2)
 
-let numero1 =123
+var numero1 =123
 {
     let numero1 = 111
     console.log(numero1)
