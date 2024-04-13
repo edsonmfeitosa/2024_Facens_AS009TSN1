@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula de Manipulação do DOM</title>
+</head>
+<body>
+    <h1>Aula de DOM</h1>
+    <p>
+        <label for="texto">Digite um texto</label>
+        <input type="text" name="texto" id="texto" onfocus="comfoco()" onfocusout="semfoco()">
+        <button onclick="contar(event)">Contar</button>
+    </p>
+</body>
+<script>
+    //Escutador de eventos
+    let titulo = document.querySelector('h1')
+    // titulo.addEventListener('click', () =>{
+    //     window.prompt('Por que está clicando no título da página')
+    //     window.alert('OK!')
+    // })
+    let mensagem = function (){
+        window.prompt('Por que está clicando no título da página')
+        window.alert('OK!')
+    }
+    titulo.addEventListener('click', mensagem)
+    //Modo imperativo
+    function comfoco() {
+        console.log("em foco")
+    }
+    function semfoco() {
+        console.log('sem foco')
+    }
+    function contar(event) {
+        event.preventDefault()
+        let texto = document.querySelector('#texto').value
+        window.alert(`Foi digitado ${texto.length} caracteres.`)
+
+    }
+
+</script>
+</html>

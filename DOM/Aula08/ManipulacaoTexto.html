@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula DOM</title>
+</head>
+<body>
+    <h1>Manipulação do DOM</h1>
+    <p class="primeiro">1º parágrafo</p>
+    <p id="dois">2º parágrafo</p>
+    <p>
+        <input type="text" name="ex" id="ex">
+    </p>
+    <p>
+        <ul>
+            <li>um</li>
+            <li>dois</li>
+        </ul>
+    </p>
+</body>
+<script>
+    let titulo = document.querySelector('h1')
+    titulo.textContent = "Mudei o título"
+    let par1 = document.querySelector('.primeiro')
+    par1.innerText = "mudou o 1º parágrafo"
+    let par2 = document.getElementById('dois')
+    par2.textContent = "nova informação"
+
+    let caixaTexto = document.querySelector('#ex')
+    caixaTexto.value = 'Edson'
+
+    let lista = document.querySelectorAll('li')
+    lista[0].textContent = 'mudou o primeiro item'
+
+</script>
+</html>

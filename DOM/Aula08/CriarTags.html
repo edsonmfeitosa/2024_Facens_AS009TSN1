@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula de manipulação do DOM</title>
+</head>
+<body>
+    <h1>Aula de DOM - Criando elementos HTML</h1>
+    <p>
+        <label>Digite uma tarefa</label>
+        <input type="text" name="tarefa" id="tarefa">
+        <button onclick="adicionar(event)">Inserir</button>
+    </p>
+    <p>
+        <ul></ul>
+    </p>
+</body>
+<script>
+    function adicionar(event) {
+        event.preventDefault()
+        let texto = document.querySelector('#tarefa').value
+        let item = document.createElement('li')
+        item.textContent = texto
+        let lista = document.querySelector('ul')
+        lista.appendChild(item)
+        document.querySelector('#tarefa').value = ''
+        
+    }
+</script>
+</html>
