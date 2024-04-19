@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header><font align="center"><h1>Saiba Mais</h1></font></header>
+    <main>
+        <form action="https://65023c2e736d26322f5ce403.mockapi.io/api/v1" method="get">
+            <fieldset>
+                <legend>Aluno</legend>
+                <label>Nome*: <input type="text" name="nomeAluno" id="nomeAluno" required></label>
+                <label>Telefone: <input type="tel" name="telAluno" id="telAluno" ></label>
+                <br>
+                <br>
+                <label>Celular*: <input type="cel" name="celAluno" id="celAluno"></label>
+                <label>E-mail*: <input type="email" name="emailAluno" id="emailAluno" required></label>
+                <br>
+                <fieldset>
+                    <legend>Cor</legend>
+                <label><input type="radio" name="cor" id="branca" value="branca">Branca</label>
+                <label><input type="radio" name="cor" id="preta" value="preta">Preta</label>
+                <br>
+                <label><input type="radio" name="cor" id="parda" value="parda">Parda</label>
+                <label><input type="radio" name="cor" id="amarela" value="amarela">Amarela</label>
+                <br>
+                <label><input type="radio" name="cor" id="indigena" value="indigena">Indigena</label>
+                </fieldset>
+
+            </fieldset>
+            <fieldset>
+                <legend>Endereço</legend>
+                <label>Estado: <input type="estado" name="estado" id="estado"></label>
+                <label>Cidade: <input type="text" name="cidade" id="cidade"></label>
+                <br>
+                <br>
+                <label>CEP: <input type="number" name="cep" id="cep" ></label>
+                <label>Bairro: <input type="text" name="bairro" id="bairro"></label>
+                <br>
+                <br>
+                <label>Rua: <input type="text" name="rua" id="rua" ></label>
+                <label>Número: <input type="number" name="numero" id="numero"></label>
+                <br>
+                <br>
+                <label>Complemento: <input type="text" name="complemento" id="complemento" ></label>
+            </fieldset>
+            <fieldset>
+                <legend>Pai</legend>
+                
+                <label>Nome*: <input type="text" name="nomePai" id="nomePai" required></label>
+                <label>Celular*: <input type="tel" name="celPai" id="celPai" required></label>
+                <br>
+                <br>
+                <label>E-mail*: <input type="email" name="emailPai" id="emailPai" required></label>
+                <label for="">Nascimento: <input type="date" name="nascPai" id="nascPai"></label>
+                <br>
+                <br>
+                <label>CPF*: <input type="number" name="cpfPai" id="cpfPai" required></label>
+                <label>Naturalidade: <input type="text" name="naturalidadePai" id="naturalidadePai"></label>
+                <br>
+                <br>
+                <label>Intrução: <input type="text" name="instrucaoPai" id="instrucaoPai"></label>
+                <label>Profissão: <input type="text" name="profissaoPai" id="profissaoPai"></label>
+                <fieldset>
+                    <legend>Resposável Finaceiro</legend>
+                <label><input type="radio" name="financeiroPai" id="Sim" value="sim">Sim</label>
+                <label><input type="radio" name="financeiroPai" id="Não" value="nao">Não</label>
+                <br>
+                </fieldset>
+            
+            </fieldset>
+            <fieldset>
+                <legend>Mãe</legend>
+                
+                <label>Nome*: <input type="text" name="nomeMae" id="nomeMae" required></label>
+                <label>Celular*: <input type="tel" name="celMae" id="celMae" required></label>
+                <br>
+                <br>
+                <label>E-mail*: <input type="email" name="emailMae" id="emailMae" required></label>
+                <label for="">Nascimento: <input type="date" name="nascMae" id="nascMae"></label>
+                <br>
+                <br>
+                <label>CPF*: <input type="number" name="cpfMae" id="cpfMae" required></label>
+                <label>Naturalidade: <input type="text" name="naturalidadeMae" id="naturalidadeMae"></label>
+                <br>
+                <br>
+                <label>Intrução: <input type="text" name="instrucaoMae" id="instrucaoMae"></label>
+                <label>Profissão: <input type="text" name="profissaoMae" id="profissaoMae"></label>
+                <fieldset>
+                    <legend>Resposável Finaceiro</legend>
+                <label><input type="radio" name="financeiroMae" id="Sim" value="sim">Sim</label>
+                <label><input type="radio" name="financeiroMae" id="Não" value="nao">Não</label>
+                <br>
+                </fieldset>
+            </fieldset>
+            <fieldset id="curso"></fieldset>
+            <button type="submit">Enviar!</button>
+        </form>
+    </main>
+</body>
+<script src="./script.js"></script>
+</html>

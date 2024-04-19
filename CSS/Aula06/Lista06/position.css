@@ -1,0 +1,77 @@
+/* Reset de estilos padrão */
+body, h1, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+/* Menu superior */
+.menu-superior {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.menu-superior ul {
+    list-style: none;
+}
+
+.menu-superior ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.menu-superior a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Menu lateral */
+.menu-lateral {
+    background-color: #333;
+    color: #fff;
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    top: 40px;
+    left: 0;
+}
+
+.menu-lateral ul {
+    list-style: none;
+}
+
+.menu-lateral ul li {
+    padding: 10px;
+}
+
+.menu-lateral a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Conteúdo principal */
+.conteudo {
+    margin-left: 220px; /* Largura do menu lateral + margem */
+    padding: 50px;
+}
+
+/* Rodapé */
+.rodape {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

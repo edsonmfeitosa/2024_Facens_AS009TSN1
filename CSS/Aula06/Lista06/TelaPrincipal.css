@@ -1,0 +1,55 @@
+/* Estilos gerais */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo da barra lateral */
+.barra-lateral {
+    width: 20%;
+    height: 100%;
+    float: left;
+    background-color: #3498db;
+    color: #ffffff;
+}
+
+.barra-lateral ul {
+    list-style: none;
+    padding: 1;
+}
+
+.barra-lateral li {
+    margin-bottom: 10px;
+}
+
+.barra-lateral a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+/* Estilo do conteúdo principal */
+.conteudo-principal {
+    width: 80%;
+    height: 100%;
+    float: right;
+    background-color: #ecf0f1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteudo-principal h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.conteudo-principal p {
+    font-size: 16px;
+}
