@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX - Fetch</title>
+</head>
+<body>
+    <nav>
+        <a href="../Aula08/ManipulacaoTexto.html">Manipulação de Texto</a>
+        <a href="../Aula08/ManipulacaoPropriedade.html">Manipulação de Propriedades</a>
+        <a href="../Aula08/Eventos.html">Manipulação de eventos</a>
+        <a href="../Aula08/CriarTags.html">Criação de tags dinâmicas</a>
+    </nav>
+    <hr>
+    <div class="conteudo">
+
+    </div>
+</body>
+<script>
+    let links = document.querySelectorAll('a')
+    let pagina = document.querySelector('.conteudo')
+    links.forEach(element => {
+        element.addEventListener('click', (event) =>{
+            event.preventDefault()
+            fetch(element).then(resposta => resposta.text())
+                          .then(dados => pagina.innerHTML = dados)
+        })
+    });
+</script>
+</html>
