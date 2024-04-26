@@ -1,0 +1,29 @@
+Setor
+[
+    {"id": 1, "nome": "Tecnologia da Informação", "sigla": "TI"},
+    {"id": 2, "nome": "Recursos Humanos", "sigla": "RH"},
+    {"id": 3, "nome": "Financeiro", "sigla": "FI"},
+    {"id": 4, "nome": "Marketing e Vendas", "sigla": "MK"},
+    {"id": 5, "nome": "Produção e Operações", "sigla": "PO"}
+]
+
+Cargo
+[
+    {"id" : 1, "nome" : "Analista de Sistemas", "salário" : "8500"},
+    {"id" : 2, "nome" : "Assistente Administrativo", "salário" : "2500"},
+    {"id" : 3, "nome" : "Secretário", "salário" : "4300"},
+    {"id" : 4, "nome" : "Gerente de Vendas", "salário" : "6500"},
+    {"id" : 5, "nome" : "Analista de Marketing", "salário" : "4500"}
+]
+
+Convênio
+[
+    {"id" : 1, "nome" : "UNIMED", "valor" : {
+        "titular" : 1500,
+        "dependente" : 750
+    }},
+    {"id" : 2, "nome" : "Intermédica", "valor" : {
+        "titular" : 1400,
+        "dependente" : 850
+    }}
+]
