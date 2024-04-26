@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX - PromiseAll</title>
+  </head>
+  <body></body>
+  <script>
+    async function carregarDados() {
+      let url1 = "https://aulalp2024.free.beeceptor.com/setor";
+      let url2 = "https://aulalp2024.free.beeceptor.com/cargo";
+      let url3 = "https://aulalp2024.free.beeceptor.com/convenio";
+
+    //   let resposta = await Promise.all([fetch(url1), fetch(url2), fetch(url3)]);
+
+    //   let setores = await resposta[0].json();
+    //   let cargos = await resposta[1].json();
+    //   let convenios = await resposta[2].json();
+      let setores = [
+        { id: 1, nome: "Tecnologia da Informação", sigla: "TI" },
+        { id: 2, nome: "Recursos Humanos", sigla: "RH" },
+        { id: 3, nome: "Financeiro", sigla: "FI" },
+        { id: 4, nome: "Marketing e Vendas", sigla: "MK" },
+        { id: 5, nome: "Produção e Operações", sigla: "PO" },
+      ];
+      let cargos = [
+        { id: 1, nome: "Analista de Sistemas", salário: "8500" },
+        { id: 2, nome: "Assistente Administrativo", salário: "2500" },
+        { id: 3, nome: "Secretário", salário: "4300" },
+        { id: 4, nome: "Gerente de Vendas", salário: "6500" },
+        { id: 5, nome: "Analista de Marketing", salário: "4500" },
+      ];
+      let convenios = [
+        {
+          id: 1,
+          nome: "UNIMED",
+          valor: {
+            titular: 1500,
+            dependente: 750,
+          },
+        },
+        {
+          id: 2,
+          nome: "Intermédica",
+          valor: {
+            titular: 1400,
+            dependente: 850,
+          },
+        },
+      ];
+
+      console.log(setores);
+      console.log(cargos);
+      console.log(convenios);
+
+      //trabalhar consultando um array - Find | Filter
+      let setorSelecionado = setores.find(x => x.id == 2)
+      console.log(setorSelecionado)
+      let cargoSelecionado = cargos.filter(x => x.id == 1)[0]
+      console.log(cargoSelecionado)
+
+    }
+    carregarDados();
+    let funcionario = {
+        nome : 'Professor',
+        telefone : '12345',
+        email: 'edson.feitosa@facens.br',
+        cpf : '222333444-49',
+        rg : '12345345',
+        idCargo : 1,
+        idSetor : 1,
+        idConvenio : 1
+    } 
+    //Classe JSON
+    let stringFuncionario = JSON.stringify(funcionario)
+    console.log(stringFuncionario)
+    console.log(JSON.parse(stringFuncionario))
+
+
+    //salvarFuncionario(funcionario)
+
+    function salvarFuncionario(func) {
+        let url = 'https://66266bc2052332d55322d1f0.mockapi.io/funcionario'
+        fetch(url,{
+            method : 'Post',
+            headers : {
+                'Content-Type' : 'application/json'
+            },
+            body : JSON.stringify(func)
+        }).then(resposta =>{
+            if (resposta.status == 201) {
+                window.alert("Salvo com sucesso.")
+            }
+        })
+    }
+
+  </script>
+</html>
