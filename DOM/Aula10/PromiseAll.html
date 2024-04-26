@@ -12,11 +12,14 @@
       let url2 = "https://aulalp2024.free.beeceptor.com/cargo";
       let url3 = "https://aulalp2024.free.beeceptor.com/convenio";
 
-    //   let resposta = await Promise.all([fetch(url1), fetch(url2), fetch(url3)]);
+      //Comentei o código do Promise.all pois o servidor não aguentou múltiplas requisições
+      //por esse motivo foi passado fixo os valores nas variáveis
 
-    //   let setores = await resposta[0].json();
-    //   let cargos = await resposta[1].json();
-    //   let convenios = await resposta[2].json();
+      //   let resposta = await Promise.all([fetch(url1), fetch(url2), fetch(url3)]);
+
+      //   let setores = await resposta[0].json();
+      //   let cargos = await resposta[1].json();
+      //   let convenios = await resposta[2].json();
       let setores = [
         { id: 1, nome: "Tecnologia da Informação", sigla: "TI" },
         { id: 2, nome: "Recursos Humanos", sigla: "RH" },
@@ -55,45 +58,42 @@
       console.log(convenios);
 
       //trabalhar consultando um array - Find | Filter
-      let setorSelecionado = setores.find(x => x.id == 2)
-      console.log(setorSelecionado)
-      let cargoSelecionado = cargos.filter(x => x.id == 1)[0]
-      console.log(cargoSelecionado)
-
+      let setorSelecionado = setores.find((x) => x.id == 2);
+      console.log(setorSelecionado);
+      let cargoSelecionado = cargos.filter((x) => x.id == 1)[0];
+      console.log(cargoSelecionado);
     }
     carregarDados();
     let funcionario = {
-        nome : 'Professor',
-        telefone : '12345',
-        email: 'edson.feitosa@facens.br',
-        cpf : '222333444-49',
-        rg : '12345345',
-        idCargo : 1,
-        idSetor : 1,
-        idConvenio : 1
-    } 
+      nome: "Professor",
+      telefone: "12345",
+      email: "edson.feitosa@facens.br",
+      cpf: "222333444-49",
+      rg: "12345345",
+      idCargo: 1,
+      idSetor: 1,
+      idConvenio: 1,
+    };
     //Classe JSON
-    let stringFuncionario = JSON.stringify(funcionario)
-    console.log(stringFuncionario)
-    console.log(JSON.parse(stringFuncionario))
-
+    let stringFuncionario = JSON.stringify(funcionario);
+    console.log(stringFuncionario);
+    console.log(JSON.parse(stringFuncionario));
 
     //salvarFuncionario(funcionario)
 
     function salvarFuncionario(func) {
-        let url = 'https://66266bc2052332d55322d1f0.mockapi.io/funcionario'
-        fetch(url,{
-            method : 'Post',
-            headers : {
-                'Content-Type' : 'application/json'
-            },
-            body : JSON.stringify(func)
-        }).then(resposta =>{
-            if (resposta.status == 201) {
-                window.alert("Salvo com sucesso.")
-            }
-        })
+      let url = "https://66266bc2052332d55322d1f0.mockapi.io/funcionario";
+      fetch(url, {
+        method: "Post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(func),
+      }).then((resposta) => {
+        if (resposta.status == 201) {
+          window.alert("Salvo com sucesso.");
+        }
+      });
     }
-
   </script>
 </html>
