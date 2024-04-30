@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema de RH</title>
+  </head>
+  <body>
+    <h1>Cadastro de Funcionário</h1>
+    <form>
+      <fieldset>
+        <legend>Dados pessoais</legend>
+        <p>
+          <label for="nome">Nome:</label>
+          <input
+            type="text"
+            name="nome"
+            id="nome"
+            placeholder="Digite o nome"
+            required
+          />
+        </p>
+        <p>
+          <label for="telefone">Telefone:</label>
+          <input type="telefone" name="telefone" id="telefone" />
+        </p>
+        <p>
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Digite o e-mail"
+            required
+          />
+        </p>
+        <p>
+          <label for="cpf">CPF:</label>
+          <input type="text" name="cpf" id="cpf" />
+        </p>
+        <p>
+          <label for="rg">RG:</label>
+          <input type="text" name="rg" id="rg" />
+        </p>
+      </fieldset>
+      <fieldset>
+        <legend>Cargo</legend>
+        <p>
+          <label for="idCargo">Cargo</label>
+          <select name="idCargo" id="idCargo">
+            <option value="0">Selecione um cargo</option>
+          </select>
+        </p>
+        <p>
+            <label for="nomeCargo">Nome:</label>
+            <input type="text" name="nomeCargo" id="nomeCargo" readonly>
+        </p>
+        <p>
+            <label for="salario">Salário</label>
+            <input type="text" name="salario" id="salario" readonly>
+        </p>
+      </fieldset>
+      <fieldset>
+        <legend>Setor</legend>
+        <p>
+            <label for="idSetor">Setor</label>
+            <select name="idSetor" id="idSetor">
+                <option value="0">Selecione um setor</option>
+            </select>
+        </p>
+        <p>
+            <label for="sigla">Sigla:</label>
+            <input type="text" name="sigla" id="sigla" readonly>
+        </p>
+        <p>
+            <label for="nomeSetor">Nome:</label>
+            <input type="text" name="nomeSetor" id="nomeSetor" readonly>
+        </p>
+      </fieldset>
+      <fieldset>
+        <legend>Convênio</legend>
+        <p>
+            <label for="idConvenio">Convênio</label>
+            <select name="idConvenio" id="idConvenio">
+                <option value="0">Selecione um convênio</option>
+            </select>
+        </p>
+        <p>
+            <label for="nomeConvenio">Nome:</label>
+            <input type="text" name="nomeConvenio" id="nomeConvenio" readonly>
+        </p>
+        <p>
+            <label for="valorTitular">Valor para o titulal:</label>
+            <input type="text" name="valorTitular" id="valorTitular" readonly>
+        </p>
+        <p>
+            <label for="valorDependente">Valor para o dependênte:</label>
+            <input type="text" name="valorDependente" id="valorDependente" readonly>
+        </p>
+      </fieldset>
+      <button onclick="gravar(event)">Gravar</button>
+    </form>
+  </body>
+  <script>
+    let listaSetor = []
+    let listaCargo = []
+    let listaConvenio = []
+    async function carregarDados() {
+        // const url1 = 'https://8c96004d-aa9a-482a-9305-82efdf6db544.mock.pstmn.io/setor'
+        // const url2 = 'https://8c96004d-aa9a-482a-9305-82efdf6db544.mock.pstmn.io/cargo'
+        // const url3 = 'https://8c96004d-aa9a-482a-9305-82efdf6db544.mock.pstmn.io/convenio'
+        const url1 = 'https://aulalp2024.free.beeceptor.com/setor'
+        const url2 = 'https://aulalp2024.free.beeceptor.com/cargo'
+        const url3 = 'https://aulalp2024.free.beeceptor.com/convenio'
+
+        const resposta = await Promise.all(
+            [
+                fetch(url1),
+                fetch(url2),
+                fetch(url3)
+            ]
+        )
+        const resultado1 = await resposta[0].json()
+        const resultado2 = await resposta[1].json()
+        const resultado3 = await resposta[2].json()
+        console.log(resultado1)
+        console.log(resultado2)
+        console.log(resultado3)
+        debugger
+        listaSetor = resultado1
+        listaCargo = resultado2
+        listaConvenio = resultado3
+
+        resultado1.forEach(element => {
+            let option = document.createElement('option')
+            option.value = element.id
+            option.text = element.nome
+            document.getElementById('idSetor').appendChild(option)
+        })
+        resultado2.forEach(element => {
+            let option = document.createElement('option')
+            option.value = element.id
+            option.text = element.nome
+            document.getElementById('idCargo').appendChild(option)
+        })
+        resultado3.forEach(element => {
+            let option = document.createElement('option')
+            option.value = element.id
+            option.text = element.nome
+            document.getElementById('idConvenio').appendChild(option)
+        })
+    }
+    carregarDados()
+    let setor = document.getElementById('idSetor')
+
+    setor.addEventListener('change', (event) => {
+        debugger
+        let idSetor = event.target.value
+        let setor = document.getElementById('idSetor')
+        let sigla = document.getElementById('sigla')
+        let nomeSetor = document.getElementById('nomeSetor')
+        let setorSelecionado = listaSetor.filter(x => x.id == idSetor)[0]
+        sigla.value = setorSelecionado.sigla
+        nomeSetor.value = setorSelecionado.nome
+    })
+
+    let cargo = document.getElementById('idCargo')
+    cargo.addEventListener('change', (event) =>{
+        let idCargo = document.querySelector('#idCargo').value
+        let nomeCargo = document.querySelector('#nomeCargo')
+        let salario = document.querySelector('#salario')
+        debugger
+        let cargoSelecionado = listaCargo.filter(x => x.id == idCargo)[0]
+        nomeCargo.value = cargoSelecionado.nome
+        salario.value = cargoSelecionado.salário
+    })
+
+    let convenio = document.querySelector('#idConvenio')
+    convenio.addEventListener('change', (event) =>{
+        let idConvenio = document.getElementById('idConvenio').value
+        let nomeConvenio = document.querySelector('#nomeConvenio')
+        let valorTitular = document.querySelector('#valorTitular')
+        let valorDependente = document.querySelector('#valorDependente')
+        let convenioSelecionado = listaConvenio.filter(x => x.id == idConvenio)[0]
+        nomeConvenio.value = convenioSelecionado.nome
+        valorTitular.value = convenioSelecionado.valor.titular
+        valorDependente.value = convenioSelecionado.valor.dependente
+    })
+
+
+    function gravar(event) {
+        event.preventDefault()
+        debugger
+        //pegar os dados do formulário
+        let nome = document.getElementById('nome').value
+        let telefone = document.getElementById('telefone').value
+        let email = document.getElementById('email').value
+        let cpf = document.getElementById('cpf').value
+        let rg = document.getElementById('rg').value
+        let idCargo = document.getElementById('idCargo').value
+        let idSetor = document.getElementById('idSetor').value
+        let idConvenio = document.getElementById('idConvenio').value
+        inserirFuncionario({nome, telefone, email, cpf, rg, idCargo, idSetor, idConvenio})
+    }
+    function inserirFuncionario(func) {
+        let url = 'https://66266bc2052332d55322d1f0.mockapi.io/funcionario'
+        fetch(url, {
+            method: 'Post',
+            headers : {
+                'Content-Type': 'application/json'
+            },
+            body : JSON.stringify(func)
+        }).then(resposta =>{
+            if (resposta.status == 201) {
+                window.alert("Dados enviados com sucesso")
+                return resposta.json()
+            }
+        })
+    }
+  </script>
+</html>

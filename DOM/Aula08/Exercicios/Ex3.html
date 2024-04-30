@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contador</title>
+</head>
+<body>
+    <h1>Contador</h1>
+    <p>Valor atual do contador: <span id="contador">0</span></p>
+    <button id="botao">Incrementar</button>
+
+    <script>
+        // Obtém referências para o botão e o elemento de contagem
+        var botao = document.getElementById('botao');
+        var contadorElemento = document.getElementById('contador');
+
+        // Inicializa o contador
+        var contador = 0;
+
+        // Adiciona um ouvinte de eventos para o clique no botão
+        botao.addEventListener('click', function() {
+            // Incrementa o contador
+            contador++;
+            
+            // Atualiza o valor do contador na página
+            contadorElemento.textContent = contador;
+        });
+    </script>
+</body>
+</html>

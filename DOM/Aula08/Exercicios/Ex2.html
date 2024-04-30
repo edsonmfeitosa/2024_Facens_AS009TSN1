@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+    <h1>Lista de Tarefas</h1>
+    
+    <input type="text" id="tarefa" placeholder="Digite sua tarefa">
+    <button id="adicionar">Adicionar</button>
+    
+    <ul id="lista-tarefas">
+        <!-- A lista de tarefas será adicionada aqui -->
+    </ul>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const campoTarefa = document.getElementById("tarefa");
+            const botaoAdicionar = document.getElementById("adicionar");
+            const listaTarefas = document.getElementById("lista-tarefas");
+
+            botaoAdicionar.addEventListener("click", function() {
+                const novaTarefaTexto = campoTarefa.value.trim();
+                if (novaTarefaTexto !== "") {
+                    const novaTarefa = document.createElement("li");
+                    novaTarefa.textContent = novaTarefaTexto;
+                    listaTarefas.appendChild(novaTarefa);
+                    campoTarefa.value = ""; // Limpar o campo de entrada
+                }
+            });
+
+            campoTarefa.addEventListener("keypress", function(event) {
+                if (event.key === "Enter") {
+                    botaoAdicionar.click(); // Simular um clique no botão ao pressionar Enter
+                }
+            });
+        });
+    </script>
+</body>
+</html>

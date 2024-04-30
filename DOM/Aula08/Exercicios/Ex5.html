@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Contador de Palavras</title>
+</head>
+<body>
+    <h1>Contador de Palavras</h1>
+
+    <label for="frase">Digite sua frase ou parágrafo:</label><br>
+    <textarea id="frase" rows="4" cols="50"></textarea><br>
+
+    <button id="contarPalavras">Contar Palavras</button>
+
+    <p>Total de palavras: <span id="resultado">0</span></p>
+
+    <script>
+        // Função para contar o número de palavras na frase
+        function contarPalavras() {
+            const fraseInput = document.getElementById("frase");
+            const resultadoSpan = document.getElementById("resultado");
+
+            // Divide a frase em palavras usando um espaço em branco como delimitador
+            const palavras = fraseInput.value.split(/\s+/);
+
+            // Remove palavras vazias (espaços em branco adicionais)
+            const palavrasLimpa = palavras.filter(function(palavra) {
+                return palavra.trim() !== '';
+            });
+
+            resultadoSpan.textContent = palavrasLimpa.length;
+        }
+
+        // Adiciona um evento de clique ao botão "Contar Palavras"
+        const botaoContarPalavras = document.getElementById("contarPalavras");
+        botaoContarPalavras.addEventListener("click", contarPalavras);
+    </script>
+</body>
+</html>

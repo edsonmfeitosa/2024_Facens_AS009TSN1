@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mudar Cor de Fundo</title>
+</head>
+<body>
+    <style>
+        .minha-div {
+            width: 400px;
+            height: 400px;
+            background-color: rgb(144, 14, 184);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        #mudar-cor {
+            padding: 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .botao{
+            width: 400px;
+        }
+    </style>
+    <div class="minha-div" id="minhaDiv">
+        <p>Clique no botão para mudar a cor</p>
+    </div>
+    <button class="botao" id="mudar-cor">Mudar Cor</button>
+
+    <script>
+        const cores = ["#ff5733", "#33ff57", "#5733ff", "#ff5733", "#33ff57"];
+
+        function corAleatoria() {
+            const indice = Math.floor(Math.random() * cores.length);
+            return cores[indice];
+        }
+
+        document.getElementById("mudar-cor").addEventListener("click", function () {
+            const minhaDiv = document.getElementById("minhaDiv");
+            minhaDiv.style.backgroundColor = corAleatoria();
+        });
+    </script>
+</body>
+</html>
